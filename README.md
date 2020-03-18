@@ -159,5 +159,7 @@ Now the machine can start by itself
 
 ## 13. Trackpoint (optional)
 - Go to BIOS, disable Trackpad
+
 Please note that middle scrolling button doesn't work. That is a disappoint.
-I prefer using an external mouse.
+
+I prefer using an external mouse for more functions. It may happen that scrolling is not as smooth as the trackpad on macOS. I suggest using MOS to improve experience. From this [introduction](https://www.reddit.com/r/MacOS/comments/b3dakf/mojave_smooth_scrolling/), you can install MOS from the main [page](https://mos.caldis.me/) or visit the [github](https://github.com/Caldis/Mos/blob/master/README.enUS.md).
