@@ -2,6 +2,8 @@
 
 I used to be a loyal Windows user until I got my first Macbook. The moment I got an extra SSD, I planned to install macOS on my Thinkpad X230. Tutorials are scattered around, some links no longer exist, some repositories uses different version of macOS from their description. So I decided to make this as a detailed reference for me. If you find it useful, I'm glad to help.
 
+All tools and files were accessed and uploaded by March 18, 2020. To me, this is the latest update on the original source. It took me total of 6.5 hours to start from beginning, got stuck and solve everything.
+
 **Target**: macOS High Sierra 10.13.6 (I'll try newer updates later)
 
 **Source**: https://github.com/littlegtplr/Hackintosh-X230-macOS (please note some links and old version tools from this repo no longer exist)
@@ -96,6 +98,8 @@ At this step, the EFI volume must be mounted (either automatically after step 2 
 
 ## 7. BIOS settings on Thinkpad
 
+Press F1 during POST
+
 - change Security/Virtualization/VT-d: Disable
 - change Startup/Boot mode: Diagnostics
 - change Config/Network/Wake on Lan: Disable
@@ -109,7 +113,7 @@ At this step, the EFI volume must be mounted (either automatically after step 2 
 
 ## 8. Install (on thinkpad)
 - plug to USB 2.0 port on the right hand side
-- F12, select USB HDD: Kingston
+- Press F12 during POST, select USB HDD: Kingston
 - when Clover boot menu appears, use arrow key or mouse to select Boot from Install High Sierra...
 - seems to work, loading…
 - select English,
@@ -147,4 +151,13 @@ Now the machine can start by itself
 - follow instruction on https://github.com/Piker-Alpha/ssdtPRGen.sh
 - better save file
 - run command: ~/ssdtPRGen.sh
+
+## 12. Sound (on thinkpad)
+- To have sound, go to System Preferences/Sound, tab Output, select Speaker (Analog)
+- To have microphone, change to tab Input, select Microphone (Digital)
 - done
+
+## 13. Trackpoint (optional)
+- Go to BIOS, disable Trackpad
+Please note that middle scrolling button doesn't work. That is a disappoint.
+I prefer using an external mouse.
