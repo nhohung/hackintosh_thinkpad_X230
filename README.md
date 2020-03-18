@@ -1,10 +1,9 @@
 # Hackintosh High Sierra on Thinkpad X230
 
-This page is under construction. I will delete this line once everything is up and running.
-
 I used to be a loyal Windows user until I got my first Macbook. The moment I got an extra SSD, I planned to install macOS on my Thinkpad X230. Tutorials are scattered around, some links no longer exist, some repositories uses different version of macOS from their description. So I decided to make this as a detailed reference for me. If you find it useful, I'm glad to help.
 
 **Target**: macOS High Sierra 10.13.6 (I'll try newer updates later)
+
 **Source**: https://github.com/littlegtplr/Hackintosh-X230-macOS (please note some links and old version tools from this repo no longer exist)
 
 **Available equipment:**
@@ -12,13 +11,14 @@ I used to be a loyal Windows user until I got my first Macbook. The moment I got
 - Macbook Air 11.6 (early 2015)
 - 8 GB USB stick
 - 1 GB USB stick
+- Wifi dongle Edimax, model EW-7811UN
 
-## 1. Prepare installer (done on Macbook Air)
+## 1. Prepare installer
 - Download macOS: High Sierra (ref: https://hackintosher.com/guides/make-macos-flash-drive-installer/)
 - Erase disk (to have Scheme, change View at top left to All drives)
 - Create the installer to the 8 GB USB
 
-## 2. Install Clover boot loader on 8 GB USB (done on Macbook Air). 
+## 2. Install Clover boot loader on 8 GB USB
 
 Ref: https://medium.com/@salbito/installing-clover-on-a-macos-sierra-installer-130705b91bfa
 
@@ -38,7 +38,7 @@ In the new version, settings are not the same to the original repo, these are my
 You need to mount the EFI volume on the USB by following steps 3, 4a. Then continue from step 5.
 However, if you already see the new EFI volume appears on the desktop, skip step 4a. In other words, follow step 3, then continue from step 5.
 
-## 3. Install Clover Configurator on Macbook Air
+## 3. Install Clover Configurator
 
 You will need this app to
 - mount/unmount EFI volume
@@ -74,9 +74,9 @@ At this step, the EFI volume must be mounted (either automatically after step 2 
 **Follow these steps carefully, most of my time was spent debugging at this step.**
 - open a new Finder window
 - go to the mounted EFI volume, there is a single EFI folder
-- open this single EFI folder, there are 2 folders named BOOT and CLOVER, open the CLOVER folder
-- download repository
-- open another new Finder window, unzip file and go into the unzipped folder, here you should see several folders (ACPI, doc...) and files
+- open this single EFI folder, there are 2 folders named BOOT and CLOVER, open the CLOVER folder and set it aside
+- download CLOVER.zip from this repository
+- open another new Finder window, go to the downloaded zip file, unzip file and go into the unzipped folder (named CLOVER), here you should see 8 folders (ACPI, doc...) and 3 files
 - from this location, copy everything to the CLOVER folder on the other Finder window
 
 **Please follow steps above carefully, when copying, there must be a dialogue telling you there are files with the same name and provides some options: Delete, Replace, Merge. Select Merge.**
@@ -96,7 +96,7 @@ At this step, the EFI volume must be mounted (either automatically after step 2 
 
 ## 7. BIOS settings on Thinkpad
 
-- change Security/Virtualization/VT-d: Disable * if not work, try turn this on again
+- change Security/Virtualization/VT-d: Disable
 - change Startup/Boot mode: Diagnostics
 - change Config/Network/Wake on Lan: Disable
 - change Config/Power/Intel Rapid Start technology: Disable
@@ -107,13 +107,13 @@ At this step, the EFI volume must be mounted (either automatically after step 2 
 
 - check: Security Theft: Disable, disable Computrace
 
-## 8. Install
+## 8. Install (on thinkpad)
 - plug to USB 2.0 port on the right hand side
 - F12, select USB HDD: Kingston
 - when Clover boot menu appears, use arrow key or mouse to select Boot from Install High Sierra...
 - seems to work, loading…
 - select English,
-- Disk utility => Erase SSD drive (select the whole drive, not the volume) (https://hackintosher.com/guides/macos-high-sierra-hackintosh-install-clover-walkthrough/)
+- Disk utility => Erase SSD drive similar to step 1 (select the whole drive, not the volume)
 - install
 - when restart, boot again from usb, boot from Install, edit minstallconfig.xml
 - when restart, boot again from usb, now boot from High Sierra instead of Install… => 18 minutes
@@ -124,7 +124,7 @@ At this step, the EFI volume must be mounted (either automatically after step 2 
 - Create account, Customize, don’t track, London time, Not share Mac Analytic, No Siri
 - Follow instruction to detect keyboard
 
-## 9. Configure EFI partition
+## 9. Configure EFI partition (on thinkpad)
 - copy clover boot loader and configurator to usb to Thinkpad
 - run clover configurator, mount EFI of usb installer
 - copy EFI folder to desktop
@@ -133,17 +133,17 @@ At this step, the EFI volume must be mounted (either automatically after step 2 
 - copy EFI on Desktop to EFI volume (which has a EFI folder), do not delete, select Merge
 - delete EFI/APPLE
 - unmount 2 usb, then restart
-Now machine can start by itself
+Now the machine can start by itself
 
-## 10 Wifi
-- On old Mac, download wifi dongle driver (https://www.edimax.com/edimax/download/download/data/edimax/global/download/product/wireless_adapters/wireless_adapters_n150/ew-7811un/) version 1.0.1.8 for macOS 10.13
+## 10 Wifi dongle driver (for thinkpad)
+- On the old Mac, download wifi dongle driver (https://www.edimax.com/edimax/download/download/data/edimax/global/download/product/wireless_adapters/wireless_adapters_n150/ew-7811un/) version 1.0.1.8 for macOS 10.13
 - plug wifi dongle and usb to new Mac
 - unzip on usb, installer.pkg
 - during installation, need Securety and Privacy approval.
 - be patient, then Restart
 - wifi dongle icon will appear at top bar
 
-## 11. Power Management
+## 11. Power Management (on thinkpad)
 - follow instruction on https://github.com/Piker-Alpha/ssdtPRGen.sh
 - better save file
 - run command: ~/ssdtPRGen.sh
