@@ -164,9 +164,15 @@ Please note that middle scrolling button doesn't work. That is a disappoint.
 
 I prefer using an external mouse for more functions. It may happen that scrolling is not as smooth as the trackpad on macOS. I suggest using MOS to improve experience. From this [introduction](https://www.reddit.com/r/MacOS/comments/b3dakf/mojave_smooth_scrolling/), you can install MOS from the main [page](https://mos.caldis.me/) or visit the [github](https://github.com/Caldis/Mos/blob/master/README.enUS.md).
 
-## 14. Connection notes
+## Extra notes
+
+### a. Connection notes
 - Bluetooth will run natively after installation
 - Bluetooth (and sometimes Wifi) may become instable after waking up from sleep. Suggestion: disconnect your bluetooth devices before putting your Hackintosh to sleep. After waking up, reconnect bluetooth devices. For wifi, disable and enable is adequate.
+
+### b. TRIM support on SSD
+Initially after installation,TRIM is not activated on my SSD (SanDisk SDSSDA480G) - you can find if it's on or off by go to About This Mac > System Report > SATA.
+To turn it on, go to terminal and run `sudo trimforce enable`.
 
 Have fun with your hackintosh.
 
