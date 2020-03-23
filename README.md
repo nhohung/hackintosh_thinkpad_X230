@@ -177,11 +177,14 @@ To turn it on, go to terminal and run `sudo trimforce enable`.
 ### c. Updates
 Regular app updates (iTunes, Safari...) run normally.
 Security updates need some special treatments:
+- Turn off SIP by mounting EFI volume, loading the config.plist on this volumn and edit Rt Variables/CsrActiveConfig from 0x0 to 0x67 (as instructed at https://hackintosher.com/forums/thread/enable-disable-system-integrity-protection-sip-on-a-hackintosh.53/).
+- Save the config.plist and Restart the machine
 - Go to App Store/Updates, when a security update is shown, click on Update
 - When a dialogue Some updates need to finish downloading before they are installed appears, click on Not now (if you select Download and Restart, the machine will restart after downloading, but the update is not installed on Hackintosh).
 - After the update installation is downloaded, go to a folder located at /Library/Updates/. Look for one that has several .pkg files. At the time of this Readme, I was trying to install 2020-001 Security update.
 - Run the corresponding installation. At the time of this Readme, it is SecUpd2020-001HighSierra.pkg
 - After the installation has been prepared, select Restart
+- After all this, enable SIP by editing CsrActiveConfig back to 0x0, and Restart.
 
 _There is another suggestion to install the combo update, which can be found at https://support.apple.com/kb/DL1970?locale=en_US but I haven't tried that._
 
