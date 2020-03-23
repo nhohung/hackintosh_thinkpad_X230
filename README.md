@@ -93,7 +93,6 @@ At this step, the EFI volume must be mounted (either automatically after step 2 
 - look above, copy Board Serial number, move to the left, Rt Variables: paste to MLB box
 - File/Save to config.plist in USB drive: EFI/CLOVER/ (replace old file)
 - a notice telling the file won't be changed later, just accept
-
 - Now unmount the EFI volume on the USB (using step 4b), then eject the other volume Install macOS High Sierra.
 
 ## 7. BIOS settings on Thinkpad
@@ -108,7 +107,6 @@ Press F1 during POST
 - change Startup/UEFI-Legacy Boot: UEFI Only
 - change Security/Fingerprint/Predesktop Authentication: Disable
 - change CSM Support to No
-
 - check: Security Theft: Disable, disable Computrace
 
 ## 8. Install (on thinkpad)
@@ -121,7 +119,6 @@ Press F1 during POST
 - install
 - when restart, boot again from usb, boot from Install, edit minstallconfig.xml
 - when restart, boot again from usb, now boot from High Sierra instead of Install… => 18 minutes
-
 - when restart, boot again from usb, now boot from High Sierra, then Setup
 - Select US
 - Select Not connect to Internet, Don’t transfer info.
@@ -172,21 +169,22 @@ I prefer using an external mouse for more functions. It may happen that scrollin
 
 ### b. TRIM support on SSD
 Initially after installation,TRIM is not activated on my SSD (SanDisk SDSSDA480G) - you can find if it's on or off by go to About This Mac > System Report > SATA.
+
 To turn it on, go to terminal and run `sudo trimforce enable`.
 
 ### c. Updates
 Regular app updates (iTunes, Safari...) run normally.
+
 Security updates need some special treatments:
 - Turn off SIP by mounting EFI volume, loading the config.plist on this volumn and edit Rt Variables/CsrActiveConfig from 0x0 to 0x67 (as instructed at https://hackintosher.com/forums/thread/enable-disable-system-integrity-protection-sip-on-a-hackintosh.53/).
-- Save the config.plist and Restart the machine
+- Save the config.plist, unmount the EFI and Restart the machine
 - Go to App Store/Updates, when a security update is shown, click on Update
 - When a dialogue Some updates need to finish downloading before they are installed appears, click on Not now (if you select Download and Restart, the machine will restart after downloading, but the update is not installed on Hackintosh).
 - After the update installation is downloaded, go to a folder located at /Library/Updates/. Look for one that has several .pkg files. At the time of this Readme, I was trying to install 2020-001 Security update.
 - Run the corresponding installation. At the time of this Readme, it is SecUpd2020-001HighSierra.pkg
 - After the installation has been prepared, select Restart
-- After all this, enable SIP by editing CsrActiveConfig back to 0x0, and Restart.
+- After all this, enable SIP by editing CsrActiveConfig back to 0x0, unmount EFI and Restart.
 
 _There is another suggestion to install the combo update, which can be found at https://support.apple.com/kb/DL1970?locale=en_US but I haven't tried that._
 
-Have fun with your hackintosh.
-
+## Have fun with your hackintosh.
