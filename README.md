@@ -174,5 +174,14 @@ I prefer using an external mouse for more functions. It may happen that scrollin
 Initially after installation,TRIM is not activated on my SSD (SanDisk SDSSDA480G) - you can find if it's on or off by go to About This Mac > System Report > SATA.
 To turn it on, go to terminal and run `sudo trimforce enable`.
 
+### c. Updates
+Regular app updates (iTunes, Safari...) run normally.
+Security updates need some special treatments:
+- Go to App Store/Updates, when a security update is shown, click on Update
+- When a dialogue Some updates need to finish downloading before they are installed appears, click on Not now.
+- After the update installation is downloaded, go to a folder located at /Library/Updates/. Look for one that has several .pkg files. At the time of this Readme, I was trying to install 2020-001 Security update.
+- Run the corresponding installation. At the time of this Readme, it is SecUpd2020-001HighSierra.pkg
+- After the installation has been prepared, select Restart
+
 Have fun with your hackintosh.
 
