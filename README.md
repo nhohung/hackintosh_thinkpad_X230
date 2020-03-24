@@ -163,9 +163,9 @@ I prefer using an external mouse for more functions. It may happen that scrollin
 
 ## Extra notes
 
-### a. Connection notes
+### a. Connectivity
 - Bluetooth will run natively after installation
-- Bluetooth (and sometimes Wifi) may become instable after waking up from sleep. Suggestion: disconnect your bluetooth devices before putting your Hackintosh to sleep. After waking up, reconnect bluetooth devices. For wifi, disable and enable is adequate.
+- Bluetooth (and sometimes Wifi) may become instable after waking up from sleep. Suggestion: disconnect your bluetooth devices and turn off bluetooth before putting your Hackintosh to sleep. After waking up, reconnect bluetooth devices. For wifi, disable and enable is adequate.
 
 ### b. TRIM support on SSD
 Initially after installation,TRIM is not activated on my SSD (SanDisk SDSSDA480G) - you can find if it's on or off by go to About This Mac > System Report > SATA.
