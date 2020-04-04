@@ -2,7 +2,7 @@
 
 I used to be a loyal Windows user until I got my first Macbook. The moment I got an extra SSD, I planned to install macOS on my Thinkpad X230. Tutorials are scattered around, some links no longer exist, some repositories uses different version of macOS from their description. So I decided to make this as a detailed reference for me. If you find it useful, I'm glad to help.
 
-# Part 1. Install High Sierra
+# Part 1. Install fresh High Sierra
 
 _Please note that part 1 install fresh High Sierra. I've tried install fresh Catalina 10.15.4 on April 3, 2020. Please see part 2 below._
 
@@ -157,6 +157,7 @@ Now the machine can start by itself
 - To have sound, go to System Preferences/Sound, tab Output, select Speaker (Analog)
 - To have microphone, change to tab Input, select Microphone (Digital)
 - done
+- To fix low volume, change configure of VoodooHDA.kext as instructed [here](https://www.reddit.com/r/hackintosh/comments/dfdf3l/x230_from_2012_living_the_catalina_dream/). Basically, right click, Show package content and edit info.plist, enable 4 settings starting with VoodooHDAEnable_.
 
 ## 13. Trackpoint (optional)
 - Go to BIOS, disable Trackpad
@@ -193,7 +194,7 @@ _There is another suggestion to install the combo update, which can be found at 
 
 ## Have fun with your hackintosh.
 
-# Part 2. Install Catalina
+# Part 2. Install fresh Catalina
 
 Install from https://mighil.com/thinkpad-x230-hackintosh/
 
@@ -252,12 +253,11 @@ Old driver doesn’t work. Follow https://github.com/chris1111/Wireless-USB-Adap
 
 ## 7. Sound setup: like High Sierra
 Mic doesn't seem to work but headphone (with mic) works fine.
+
 ## 8. Language
 System Preferences/Language & Region, add on the left, add Vietnamese. To Shortcut, Keyboard.
 
-## 9. Bluetooth not working, check later
+## 9. External monitor
+System crashed when plugged in the first time, BIOS information got restored to default. After re-configuring BIOS, and restart, external screen works.
 
-## 10. External monitor
-System crashed when plugged, CMOS information got restored to default. Haven't investigated.
-
-- Potential fix: copy EFI from 10.15.2 to replace (haven't try).
+## 10. Bluetooth not working, check later
