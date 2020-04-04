@@ -1,6 +1,8 @@
-# Hackintosh High Sierra on Thinkpad X230
+# Hackintosh on Thinkpad X230
 
 I used to be a loyal Windows user until I got my first Macbook. The moment I got an extra SSD, I planned to install macOS on my Thinkpad X230. Tutorials are scattered around, some links no longer exist, some repositories uses different version of macOS from their description. So I decided to make this as a detailed reference for me. If you find it useful, I'm glad to help.
+
+This repo has 2 parts: High Sierra and Catalina.
 
 # Part 1. Install fresh High Sierra
 
