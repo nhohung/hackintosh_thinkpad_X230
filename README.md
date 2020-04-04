@@ -2,6 +2,10 @@
 
 I used to be a loyal Windows user until I got my first Macbook. The moment I got an extra SSD, I planned to install macOS on my Thinkpad X230. Tutorials are scattered around, some links no longer exist, some repositories uses different version of macOS from their description. So I decided to make this as a detailed reference for me. If you find it useful, I'm glad to help.
 
+# Part 1. Install High Sierra
+
+_Please note that part 1 install fresh High Sierra. I've tried install fresh Catalina 10.15.4 on April 3, 2020. Please see part 2 below._
+
 All tools and files were accessed and uploaded by March 18, 2020. To me, this is the latest update on the original source. It took me total of 6.5 hours to start from beginning, got stuck and solve everything.
 
 **Target**: macOS High Sierra 10.13.6 (I'll try newer updates later)
@@ -188,3 +192,72 @@ Security updates need some special treatments:
 _There is another suggestion to install the combo update, which can be found at https://support.apple.com/kb/DL1970?locale=en_US but I haven't tried that._
 
 ## Have fun with your hackintosh.
+
+# Part 2. Install Catalina
+
+Install from https://mighil.com/thinkpad-x230-hackintosh/
+
+## 1. Create installation media
+
+Reference: https://9to5mac.com/2019/06/27/how-to-create-a-bootable-macos-catalina-10-15-usb-install-drive-video/
+
+- download Catalina from App Store
+
+Requires at least 16 GB. I use a 64 GB USB.
+
+Now erase, create Journal extend… and so on.
+
+- Terminal: sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/Hackintosh
+
+After this, a new volume is created and mounted: Install macOS Catalina
+
+## 2. Install Clover to USB
+
+Refer to https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/clover-setup
+
+- Use the latest version: r5108.
+- Change Install Location: Install macOS Catalina
+- Customize: check all Rec. drivers, HID, File system: ApfdDriverLoader, VBoxHfs, Memory fix drivers: AptioMemoryFix, Additional: EmuVariableUefi.
+
+Then Install.
+
+## 3. EFI configuration:
+- (optional) install Clover configurator, mount EFI partition (it’s normally mounted).
+- download from https://github.com/mighildotcom/X230-Hackintosh: Download directly from main GitHub site
+- unzip, there is a folder with 3 subfolders and a README.md, go to 10.15/EFI. There are 2 folders BOOT and CLOVER
+- open EFI partition on HDD, there is another EFI, go there. There are 2 folders BOOT and CLOVER
+- go to BOOT, copy BOOTX64.efi from unzipped folder to EFI/EFI/BOOT, select Replace
+- go up, go to CLOVER, there are 8 folders and 3 files. Delete CLOVER on the usb EFI, then copy all these to EFI/EFI/CLOVER/
+- no need to edit config.plist file
+- unmount EFI, eject Install macOS Catalina
+
+## 4. Installation: Follow installation of High Sierra.
+- boot from USB
+- select Boot macOS Install from Install macOS Catalina
+- erase internal disk then install
+- First restart, boot directly from hard drive
+- Second restart, boot from hard drive again, after a while it shows 16 minutes
+- Third restart, there are 2 more options, need to manually select Boot macOS from Catalina
+
+- Follow installation instruction. At Choose your look, select Dark (previous find instability with White)
+
+## 5. Install Clover to have EFI partition (if found not compatible because version r5105 instead of the latest one, just continue), mount and copy EFI from USB to hard drive EFI, then remove APPLE folder. Restart
+
+## 6. Wifi Dongle
+Old driver doesn’t work. Follow https://github.com/chris1111/Wireless-USB-Adapter:
+- mount EFI, open config.plist
+- Rt Variables: change CsrActiveConfig from 0x3E7 to 0x67 (Disable). If want to Enable in the future, change to 0x00. Just delete and type 67, it will fill in the remaining.
+- Save and Reboot
+- Run Wireless USB adapter-V11 (will need permission) then Restart
+
+## 7. Sound setup: like High Sierra
+Mic doesn't seem to work but headphone (with mic) works fine.
+## 8. Language
+System Preferences/Language & Region, add on the left, add Vietnamese. To Shortcut, Keyboard.
+
+## 9. Bluetooth not working, check later
+
+## 10. External monitor
+System crashed when plugged, CMOS information got restored to default. Haven't investigated.
+
+- Potential fix: copy EFI from 10.15.2 to replace (haven't try).
