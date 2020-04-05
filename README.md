@@ -198,9 +198,13 @@ _There is another suggestion to install the combo update, which can be found at 
 
 # Part 2. Install fresh Catalina
 
-Install from https://mighil.com/thinkpad-x230-hackintosh/
+With the instruction from https://mighil.com/thinkpad-x230-hackintosh/, I first tried the latest 10.15.4 but Bluetooth is not detectable. I then tried the older 10.15.2 which matches version by the reference link.
 
-## 1. Create installation media
+Hereby I summarize the installation of both versions. In either case, Activity monitor Network Data received/sec normally appears zero.
+
+## 2.1 Install fresh Catalina 10.15.4 (Bluetooth not working)
+
+### 1. Create installation media
 
 Reference: https://9to5mac.com/2019/06/27/how-to-create-a-bootable-macos-catalina-10-15-usb-install-drive-video/
 
@@ -214,7 +218,7 @@ Now erase, create Journal extend… and so on.
 
 After this, a new volume is created and mounted: Install macOS Catalina
 
-## 2. Install Clover to USB
+### 2. Install Clover to USB
 
 Refer to https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/clover-setup
 
@@ -224,7 +228,7 @@ Refer to https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/clove
 
 Then Install.
 
-## 3. EFI configuration:
+### 3. EFI configuration:
 - (optional) install Clover configurator, mount EFI partition (it’s normally mounted).
 - download from https://github.com/mighildotcom/X230-Hackintosh: Download directly from main GitHub site
 - unzip, there is a folder with 3 subfolders and a README.md, go to 10.15/EFI. There are 2 folders BOOT and CLOVER
@@ -234,7 +238,7 @@ Then Install.
 - no need to edit config.plist file
 - unmount EFI, eject Install macOS Catalina
 
-## 4. Installation: Follow installation of High Sierra.
+### 4. Installation: Follow installation of High Sierra.
 - boot from USB
 - select Boot macOS Install from Install macOS Catalina
 - erase internal disk then install
@@ -244,22 +248,79 @@ Then Install.
 
 - Follow installation instruction. At Choose your look, select Dark (previous find instability with White)
 
-## 5. Install Clover to have EFI partition (if found not compatible because version r5105 instead of the latest one, just continue), mount and copy EFI from USB to hard drive EFI, then remove APPLE folder. Restart
+### 5. Install Clover to have EFI partition
 
-## 6. Wifi Dongle
+If found not compatible because version r5105 instead of the latest one, just continue)
+- Mount and copy EFI from USB to hard drive EFI
+- then remove APPLE folder
+- Restart
+
+### 6. Wifi Dongle
+
 Old driver doesn’t work. Follow https://github.com/chris1111/Wireless-USB-Adapter:
 - mount EFI, open config.plist
 - Rt Variables: change CsrActiveConfig from 0x3E7 to 0x67 (Disable). If want to Enable in the future, change to 0x00. Just delete and type 67, it will fill in the remaining.
 - Save and Reboot
 - Run Wireless USB adapter-V11 (will need permission) then Restart
 
-## 7. Sound setup: like High Sierra
+### 7. Sound setup: like High Sierra
+
 Mic doesn't seem to work but headphone (with mic) works fine.
 
-## 8. Language
+### 8. Language
 System Preferences/Language & Region, add on the left, add Vietnamese. To Shortcut, Keyboard.
 
-## 9. External monitor
+### 9. External monitor
+
 System crashed when plugged in the first time, BIOS information got restored to default. After re-configuring BIOS, and restart, external screen works.
 
-## 10. Bluetooth not working, check later
+### 10. Bluetooth: not working
+
+I've tried several ways but couldn't make it work. Therefore switch back to 10.15.2 as shown below.
+
+## 2.2 Install fresh Catalina 10.15.2
+
+This consists of 2 steps:
+
+- Install original release 10.15 (7 GB)
+- Upgrade to 10.15.2 (2 GB)
+
+Useful links for downloads:
+- https://congngheviet.com/tao-bo-cai-macos-10-15-va-cac-phien-ban-khac/
+- https://maclife.vn/bo-cai-macos-catalina-10-15.html
+- https://support.apple.com/downloads
+
+### 1. Install 10.15
+Create installation media:
+- Open 10.15.dmg, load to Applications.
+- Make installation: 
+
+Install clover 5108:
+- Clover for UEFI
+- ESP
+- Rec. drivers
+- HID
+- FSD: Apfs
+- Mem: Aptio.
+
+Replace whole EFI 15.10 (BOOT and EFI)
+
+Install: similar to 10.15.4
+- install from usb once, installation will restart twice but select to boot from HDD.
+- install Catalina to HDD
+- install Clover 5108
+- clover configurator, mount EFI
+- delete everything on EFI (hdd), copy EFI folder from usb to EFI (hdd)
+- change VoodooHDA configuration
+- edit CSR to disable
+- restart
+- install wifi driver
+All works flawlessly, except Activity monitor Network Data received/sec normally zero.
+
+### 2. Upgrade 10.15.2
+- backup Time machine (optional)
+- prepare 10.15.2 and 10.15 ready on usb (optional)
+- run macOSUpdCombo10.15.2.dmg (it extracts to .pkg)
+- when restart, at Clover boot option, select Boot macOS Install Prebooter from Preboot (it is selected by default, just to clarify)
+- at the second restart, select again Preboot (it’s selected by default), it’ll take more than 45 minutes
+- at the third restart, the option Boot macOS Install Prebooter disappears, now select Boot macOS from Catalina
