@@ -323,4 +323,4 @@ All works flawlessly, except Activity monitor Network Data received/sec normally
 - run macOSUpdCombo10.15.2.dmg (it extracts to .pkg)
 - when restart, at Clover boot option, select Boot macOS Install Prebooter from Preboot (it is selected by default, just to clarify)
 - at the second restart, select again Preboot (it’s selected by default), it’ll take more than 45 minutes
-- at the third restart, the option Boot macOS Install Prebooter disappears, now select Boot macOS from Catalina
+- at the third restart, the option Boot macOS Install Prebooter disappears, now select Boot macOS from Catalina. This restart takes about 15 minutes to complete.
