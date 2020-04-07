@@ -2,7 +2,7 @@
 
 I used to be a loyal Windows user until I got my first Macbook. The moment I got an extra SSD, I planned to install macOS on my Thinkpad X230. Tutorials are scattered around, some links no longer exist, some repositories uses different version of macOS from their description. So I decided to make this as a detailed reference for me. If you find it useful, I'm glad to help.
 
-This repo has 2 parts: High Sierra and Catalina. I've installed High Sierra and used it for about 1 week. Then I installed Catalina on another hard drive, because I heard macOS 10.15 is not stable and didn't want to screw up my flawlessly working 10.13.6. It turns out that Catalina works quite well up to 10.15.2, not the latest 10.15.4. I also found out that using Time Machine helps to backup the whole OS and restore it to another hard drive. In the end, everything works nicely.
+This repo has 2 parts: High Sierra and Catalina. I've installed High Sierra and used it for about 2.5 weeks. Then I installed Catalina on another hard drive, because I heard macOS 10.15 is not stable and didn't want to screw up my flawlessly working 10.13.6. It turns out that Catalina works quite well up to 10.15.2, not the latest 10.15.4. I also found out that using Time Machine helps to backup the whole OS and restore it to another hard drive. In the end, everything works nicely.
 
 # Part 1. Install fresh High Sierra
 
@@ -194,11 +194,9 @@ Security updates need some special treatments:
 
 _There is another suggestion to install the combo update, which can be found at https://support.apple.com/kb/DL1970?locale=en_US but I haven't tried that._
 
-## Have fun with your hackintosh.
-
 # Part 2. Install fresh Catalina
 
-With the instruction from https://mighil.com/thinkpad-x230-hackintosh/, I first tried the latest 10.15.4 but Bluetooth is not detectable. I then tried the older 10.15.2 which matches version by the reference link.
+With the instruction from https://mighil.com/thinkpad-x230-hackintosh/, I first tried the latest 10.15.4 but Bluetooth is not detectable. I then tried the older 10.15.2 which matches version by the reference link. In the end, 10.15.2 seems to work best. This try was completed on April 5, 2020.
 
 Hereby I summarize the installation of both versions. In either case, Activity monitor Network Data received/sec normally appears zero.
 
@@ -325,3 +323,5 @@ All works flawlessly, except Activity monitor Network Data received/sec normally
 - at the second restart, select again Preboot (it’s selected by default), it’ll take more than 45 minutes
 - at the third restart, the option Boot macOS Install Prebooter disappears, now select Boot macOS from Catalina. This restart takes about 15 minutes to complete.
 - Now Catalina 10.15.2 works fine. The last (optional) step is enable TRIM support on the SSD. Simply mount the EFI, load the config.plist, go to Kernel and Kext Patches, select List of Patches at the bottom in KextsToPatch tab, select the first option Enable TRIM for SSD. Uncheck the Disabled option. Then restart the Hackintosh. Side note: I did this with CsrActiveConfig disable.
+
+## Have fun with your hackintosh.
