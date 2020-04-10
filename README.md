@@ -228,11 +228,11 @@ Then Install.
 
 ### 3. EFI configuration:
 - (optional) install Clover configurator, mount EFI partition (it’s normally mounted).
-- download from https://github.com/mighildotcom/X230-Hackintosh: Download directly from main GitHub site
-- unzip, there is a folder with 3 subfolders and a README.md, go to 10.15/EFI. There are 2 folders BOOT and CLOVER
+- option 1: download EFI_Catalina.zip from this repo, unzip then you have a folder named EFI which contains 2 subfolders named BOOT and CLOVER
+- option 2: from https://github.com/mighildotcom/X230-Hackintosh, download directly from main GitHub site. After unzip, there is a folder with 3 subfolders and a README.md, go to **10.15** folder, then EFI. There are 2 folders BOOT and CLOVER
 - open EFI partition on HDD, there is another EFI, go there. There are 2 folders BOOT and CLOVER
-- go to BOOT, copy BOOTX64.efi from unzipped folder to EFI/EFI/BOOT, select Replace
-- go up, go to CLOVER, there are 8 folders and 3 files. Delete CLOVER on the usb EFI, then copy all these to EFI/EFI/CLOVER/
+- go to unzipped BOOT, copy BOOTX64.efi from unzipped folder to EFI/EFI/BOOT, select Replace
+- go up, go to unzipped CLOVER, there are 8 folders and 3 files. Delete CLOVER on the usb EFI, then copy all these to EFI/EFI/CLOVER/
 - no need to edit config.plist file
 - unmount EFI, eject Install macOS Catalina
 
