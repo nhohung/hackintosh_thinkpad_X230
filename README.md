@@ -4,6 +4,8 @@ I used to be a loyal Windows user until I got my first Macbook. The moment I got
 
 This repo has 2 parts: High Sierra and Catalina. I've installed High Sierra and used it for about 2.5 weeks. Then I installed Catalina on another hard drive, because I heard macOS 10.15 is not stable and didn't want to screw up my flawlessly working 10.13.6. It turns out that Catalina works quite well up to 10.15.2, not the latest 10.15.4. I also found out that using Time Machine helps to backup the whole OS and restore it to another hard drive. In the end, everything works nicely.
 
+Update (May 9, 2020): I looked around to make a Hackintosh using Open Core. See bottom.
+
 # Part 1. Install fresh High Sierra
 
 _Please note that part 1 install fresh High Sierra. I've tried install fresh Catalina 10.15.4 on April 3, 2020. Please see part 2 below._
@@ -325,3 +327,18 @@ All works flawlessly, except Activity monitor Network Data received/sec normally
 - Now Catalina 10.15.2 works fine. The last (optional) step is enable TRIM support on the SSD. Simply mount the EFI, load the config.plist, go to Kernel and Kext Patches, select List of Patches at the bottom in KextsToPatch tab, select the first option Enable TRIM for SSD. Uncheck the Disabled option. Then restart the Hackintosh. Side note: I did this with CsrActiveConfig disable.
 
 ## Have fun with your hackintosh.
+
+# Part 3: Open Core
+
+I've been looking around for a Hackintosh guide using Open Core as reviews seem very positive. Unfortunately there is no guide yet for Thinkpad X230. I put this in a to-do list. Probably I can come back soon.
+
+Below is some starting link that may be useful for me/you:
+
+- [Official link to Open Core](https://dortania.github.io/oc-laptop-guide/)
+
+- [tonymacx86 attempt on Thinkpad T440S](https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440s-opencore-0-5-8.297423/)
+
+- [tonymacx86 install OC](https://www.tonymacx86.com/threads/how-install-open-core.285588/)
+
+- [tonymacx86 OC support](https://www.tonymacx86.com/threads/x299-open-core-support.282158/)
+
